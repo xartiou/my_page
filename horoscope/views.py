@@ -44,6 +44,20 @@ def index(request):
     """
     return HttpResponse(response)
 
+# функция по запросу через конвертер
+def get_yyyy_converters(request, sign_zodiac):
+    return HttpResponse(f'Число из четырех цифр - {sign_zodiac}')
+
+
+# функция по запросу через конвертер даты
+def get_my_date_converters(request, sign_zodiac):
+    return HttpResponse(f'Дата - {sign_zodiac}')
+
+
+# функция по запросу через конвертер вещественного числа
+def get_my_float_converters(request, sign_zodiac):
+    return HttpResponse(f'Вещественное число из четырех цифр - {sign_zodiac}')
+
 
 # функция для страницы типов стихий type
 def type(request):
