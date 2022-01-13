@@ -1,7 +1,6 @@
-from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.shortcuts import render
 from django.urls import reverse
-from django.template.loader import render_to_string
 
 # Create your views here.
 
@@ -32,6 +31,7 @@ element_sign = {
     'water': ['cancer', 'aquarius', 'pisces'],
 }
 
+
 # функция для страницы меню index
 def index(request):
     zodiacs = list(zodiac_dict)
@@ -45,6 +45,7 @@ def index(request):
     </ol>
     """
     return HttpResponse(response)
+
 
 # функция по запросу через конвертер
 def get_yyyy_converters(request, sign_zodiac):
@@ -96,13 +97,18 @@ def get_info_signs_type(request, signs_type: str):
 
 # функция для динамического url с запросом str
 def get_about_sign_zodiac(request, sign_zodiac: str):
-    # description = zodiac_dict.get(sign_zodiac, None)
-    # response = render_to_string('horoscope/info_zodiac.html')
-    # if description:
-    #     return HttpResponse(f'<font size="10" color="green"><center>{description}')
-    # else:
-    #     return HttpResponseNotFound(f'<h2><center>Нам ещё не известен такой знак - {sign_zodiac}.</h2>')
-    return render(request, 'horoscope/info_zodiac.html')
+    description = zodiac_dict.get(sign_zodiac)
+    context = {
+        'description_zodiac': description,
+        'sign': sign_zodiac.title(),
+        'my_int': 123,
+        'my_float': 123.123,
+        'my_list': [1, 2, 3],
+        'my_tuple': (1, 2, 3, 4, 5),
+        'my_dict': {'name': 'Jack', 'age': 40},
+    }
+    return render(request, 'horoscope/info_zodiac.html', context=context)
+
 
 # функция для динамического url с запросом int
 def get_about_sign_zodiac_by_number(request, sign_zodiac: int):

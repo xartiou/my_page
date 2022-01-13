@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Приложение Гороскоп</title>
+    <title>Гороскоп для {{ sign }}</title>
 </head>
 <body>
     <h1>Приложение Гороскоп</h1>
-    <h2>Весы - седьмой знак зодиака, планета Венера (с 24 сентября по 23 октября)</h2>
+    <h2>{{ description_zodiac }}</h2>
+    <p>Число {{my_int}}</p>
+    <p>Вещественное число {{my_float}}</p>
+    <p>Список {{my_list}}</p>
+    <p>Кортеж {{my_tuple}}</p>
+    <p>Словарь {{my_dict}}, имя - {{my_dict.name}}</p>
 </body>
 </html>
