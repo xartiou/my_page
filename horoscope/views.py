@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from dataclasses import dataclass
 
 # Create your views here.
 
@@ -95,6 +96,14 @@ def get_info_signs_type(request, signs_type: str):
         return HttpResponseNotFound(f'<h2><center>Кто такой? - {signs_type}.</h2>')
 
 
+@dataclass
+class Person:
+    name: str
+    age: int
+
+    def __str__(self):
+        return f'Это {self.name}, ему {self.age} года'
+
 # функция для динамического url с запросом str
 def get_about_sign_zodiac(request, sign_zodiac: str):
     description = zodiac_dict.get(sign_zodiac)
@@ -105,7 +114,7 @@ def get_about_sign_zodiac(request, sign_zodiac: str):
         'my_float': 123.123,
         'my_list': [1, 2, 3],
         'my_tuple': (1, 2, 3, 4, 5),
-        'my_dict': {'name': 'Jack', 'age': 40},
+        'my_class': Person('Сёма', 2),
     }
     return render(request, 'horoscope/info_zodiac.html', context=context)
 
