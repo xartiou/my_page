@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 from django.template.loader import render_to_string
@@ -96,12 +97,12 @@ def get_info_signs_type(request, signs_type: str):
 # функция для динамического url с запросом str
 def get_about_sign_zodiac(request, sign_zodiac: str):
     # description = zodiac_dict.get(sign_zodiac, None)
-    response = render_to_string('horoscope/info_zodiac.html')
+    # response = render_to_string('horoscope/info_zodiac.html')
     # if description:
     #     return HttpResponse(f'<font size="10" color="green"><center>{description}')
     # else:
     #     return HttpResponseNotFound(f'<h2><center>Нам ещё не известен такой знак - {sign_zodiac}.</h2>')
-    return HttpResponse(response)
+    return render(request, 'horoscope/info_zodiac.html')
 
 # функция для динамического url с запросом int
 def get_about_sign_zodiac_by_number(request, sign_zodiac: int):
