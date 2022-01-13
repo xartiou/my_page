@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.shortcuts import render
 
 # Create your views here.
 day_dict = {
@@ -13,12 +14,12 @@ day_dict = {
 }
 
 def get_about_day_week(request, day_week:str):
-    description = day_dict.get(day_week, None)
-    if description:
-        return HttpResponse(description)
-    else:
-        return HttpResponseNotFound(f'Нам ещё не известен такой знак - {day_week}.')
-
+    # description = day_dict.get(day_week, None)
+    # if description:
+    #     return HttpResponse(description)
+    # else:
+    #     return HttpResponseNotFound(f'Нам ещё не известен такой знак - {day_week}.')
+    return render(request, 'week_days/greeting.html')
 
 def get_about_day_week_by_number(request, day_week:int):
     days = list(day_dict)
