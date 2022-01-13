@@ -16,7 +16,7 @@ zodiac_dict = {
     "cancer": "Рак - четвёртый знак зодиака, Луна (с 22 июня по 22 июля)",
     "leo": "Лев - пятый знак зодиака, солнце (с 23 июля по 21 августа)",
     "virgo": "Дева - шестой знак зодиака, планета Меркурий (с 22 августа по 23 сентября)",
-    "libra": "Весы - седьмой знак зодиака, планета Венера (с 24 сентября по 23 октября)",
+    "libra": "Весы - <i>седьмой знак зодиака</i>, планета Венера (с 24 сентября по 23 октября)",
     "scorpio": "Скорпион - восьмой знак зодиака, планета Марс (с 24 октября по 22 ноября)",
     "sagittarius": "Стрелец - девятый знак зодиака, планета Юпитер (с 23 ноября по 22 декабря)",
     "capricorn": "Козерог - десятый знак зодиака, планета Сатурн (с 23 декабря по 20 января",
@@ -109,12 +109,13 @@ def get_about_sign_zodiac(request, sign_zodiac: str):
     description = zodiac_dict.get(sign_zodiac)
     context = {
         'description_zodiac': description,
-        'sign': sign_zodiac.title(),
+        'sign': sign_zodiac,
         'my_int': 123,
         'my_float': 123.123,
         'my_list': [1, 2, 3],
         'my_tuple': (1, 2, 3, 4, 5),
         'my_class': Person('Сёма', 2),
+        'value': [],
     }
     return render(request, 'horoscope/info_zodiac.html', context=context)
 
