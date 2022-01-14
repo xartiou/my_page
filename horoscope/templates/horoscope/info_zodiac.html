@@ -1,32 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Гороскоп для {{ sign|upper }}</title>
-</head>
-<body>
+
+{% extends 'base.html' %}
+
+{% block title%}
+    Гороскоп для {{ sign|upper }}
+{% endblock %}
+
+{% block content %}
     <h1>Приложение Гороскоп</h1>
 
     {% if description_zodiac is None %}
         <h2>Неправильный знак зодиака {{sign|upper}}</h2>
     {% else %}
-        <h2>{{ description_zodiac|title|safe }}</h2>
+        <h2>{{ description_zodiac|capfirst|safe }}</h2>
     {% endif %}
 
-    <p>Число {{my_int|add:"222"}}</p>
-    <p>Вещественное число {{my_float|add:my_float}}</p>
-    {% if my_list|length >= 3 %}
-        <p>Список из 3 и более элементов -  {{my_list}}</p>
-    {% elif my_list|length == 2 %}
-        <p>Список из 2 элементов -  {{my_list}}</p>
-    {% elif my_list|length >= 1 %}
-        <p>Список из 1 элемента -  {{my_list}}</p>
-    {% else %}
-        <p>Пустой список -  {{my_list}}</p>
-    {% endif %}
-
-    <p>Кортеж {{my_tuple|join:"*"}}</p>
-    <p>Экземпляр класса {{my_class}}</p>
-    <p>default {{value|default:"qwerty"}}</p>
-</body>
-</html>
+{% endblock %}
