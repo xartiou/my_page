@@ -112,7 +112,7 @@ def get_about_sign_zodiac(request, sign_zodiac: str):
         'sign': sign_zodiac,
         'my_int': 123,
         'my_float': 123.123,
-        'my_list': [1, 2, 3],
+        'my_list': [1, 2, 3, 2, 3],
         'my_tuple': (1, 2, 3, 4, 5),
         'my_class': Person('Сёма', 2),
         'value': [],
