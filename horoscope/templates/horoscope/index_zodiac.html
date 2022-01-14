@@ -12,9 +12,7 @@
 {% endblock %}
 
 {% block content %}
-
-{% include 'includes/nav_bar.html' %}
-
+    <h1>Приложение Гороскоп</h1>
     <ul>
         {% for zodiac in zodiacs %}
             <li>
@@ -22,7 +20,4 @@
             </li>
         {% endfor %}
     </ul>
-
-{% include 'includes/nav_bar.html' %}
-
 {% endblock %}
