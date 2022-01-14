@@ -7,10 +7,16 @@
 
 {% block content %}
 
+{% include 'includes/nav_bar.html' %}
+
     <ul>
         {% for zodiac in zodiacs %}
-            <li><a href="{% url 'horoskope_name' sign_zodiac=zodiac %}">{{ zodiac|title }}</a></li>
+            <li>
+                <a href="{% url 'horoskope_name' sign_zodiac=zodiac %}">{{ zodiac|title }}</a>
+            </li>
         {% endfor %}
     </ul>
-{% endblock %}
 
+{% include 'includes/nav_bar.html' %}
+
+{% endblock %}

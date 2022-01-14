@@ -19,7 +19,7 @@ zodiac_dict = {
     "libra": "Весы - <i>седьмой знак зодиака</i>, планета Венера (с 24 сентября по 23 октября)",
     "scorpio": "Скорпион - восьмой знак зодиака, планета Марс (с 24 октября по 22 ноября)",
     "sagittarius": "Стрелец - девятый знак зодиака, планета Юпитер (с 23 ноября по 22 декабря)",
-    "capricorn": "Козерог - десятый знак зодиака, планета Сатурн (с 23 декабря по 20 января",
+    "capricorn": "Козерог - десятый знак зодиака, планета Сатурн (с 23 декабря по 20 января)",
     "aquarius": "Водолей - одиннадцатый знак зодиака, планеты Уран и Сатурн (с 21 января по 19 февраля)",
     "pisces": "Рыбы - двенадцатый знак зодиака, планеты Юпитер (с 20 февраля по 20 марта)",
 }
@@ -91,27 +91,12 @@ def get_info_signs_type(request, signs_type: str):
         return HttpResponseNotFound(f'<h2><center>Кто такой? - {signs_type}.</h2>')
 
 
-@dataclass
-class Person:
-    name: str
-    age: int
-
-    def __str__(self):
-        return f'Это {self.name}, ему {self.age} года'
-
-
 # функция для динамического url с запросом str
 def get_about_sign_zodiac(request, sign_zodiac: str):
     description = zodiac_dict.get(sign_zodiac)
     context = {
         'description_zodiac': description,
         'sign': sign_zodiac,
-        'my_int': 123,
-        'my_float': 123.123,
-        'my_list': [1, 2, 3, 2, 3],
-        'my_tuple': (1, 2, 3, 4, 5),
-        'my_class': Person('Сёма', 2),
-        'value': [],
     }
     return render(request, 'horoscope/info_zodiac.html', context=context)
 
