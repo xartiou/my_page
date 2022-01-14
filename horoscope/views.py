@@ -5,8 +5,6 @@ from dataclasses import dataclass
 
 # Create your views here.
 
-# def leo (request):
-#     return HttpResponse('Знак зодиака Лев')
 
 # словарь знаков зодиака
 zodiac_dict = {
@@ -23,6 +21,7 @@ zodiac_dict = {
     "aquarius": "Водолей - одиннадцатый знак зодиака, планеты Уран и Сатурн (с 21 января по 19 февраля)",
     "pisces": "Рыбы - двенадцатый знак зодиака, планеты Юпитер (с 20 февраля по 20 марта)",
 }
+
 
 # словарь стихий знаков зодиака
 element_sign = {
