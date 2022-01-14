@@ -36,16 +36,11 @@ element_sign = {
 # функция для страницы меню index
 def index(request):
     zodiacs = list(zodiac_dict)
-    li_sign = ''
-    for sign in zodiacs:
-        redirect_path = reverse('horoskope_name', args=[sign])
-        li_sign += f"<li> <a href='{redirect_path}'> {sign.title()} </a> </li>"
-    response = f"""
-    <ol>
-        {li_sign}
-    </ol>
-    """
-    return HttpResponse(response)
+    # li_sign += f"<li> <a href='{redirect_path}'> {sign.title()} </a> </li>"
+    context = {
+        'zodiacs': zodiacs
+    }
+    return render(request, 'horoscope/index_zodiac.html', context=context)
 
 
 # функция по запросу через конвертер
