@@ -93,12 +93,10 @@ def get_info_signs_type(request, signs_type: str):
 # функция для динамического url с запросом str
 def get_about_sign_zodiac(request, sign_zodiac: str):
     description = zodiac_dict.get(sign_zodiac)
-    zodiacs = list(zodiac_dict)
     context = {
         'description_zodiac': description,
         'sign': sign_zodiac,
-        'zodiacs': zodiacs,
-        'sign_name': description.split()[0],
+        'zodiacs': zodiac_dict,
     }
     return render(request, 'horoscope/info_zodiac.html', context=context)
 
