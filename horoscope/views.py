@@ -99,6 +99,7 @@ class Person:
     def __str__(self):
         return f'Это {self.name}, ему {self.age} года'
 
+
 # функция для динамического url с запросом str
 def get_about_sign_zodiac(request, sign_zodiac: str):
     description = zodiac_dict.get(sign_zodiac)
